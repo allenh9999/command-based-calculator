@@ -7,8 +7,9 @@ python3 main.py
 '''
 
 ## Created by:
+| Name | Github |
+| ----| -----|
 | Allen Ho | [Github](https://github.com/allenh9999) |
-| --------- | ------------------ |
 | Will Wang | [Github](https://github.com/willix-w) |
 
 
