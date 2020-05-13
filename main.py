@@ -34,12 +34,19 @@ if __name__ == "__main__":
     print("*** Acceptable symbols:".ljust(57) + "***")
     print("*** +    -    /    *    (    }    {    }    [    ]    %".ljust(57) + "***")
     print("*** ^    sin  cos  tan  atan asin acos sec  csc  cot".ljust(57) + "***")
+    print("*** This calculator calculates in radians.".ljust(57) + "***")
+    print("*** Type in degree to change to degrees".ljust(57) + "***")
+    print("*** Type in radians to change to radians".ljust(57) + "***")
+    print("*** Special numbers: ".ljust(57) + "***")
+    print("*** pi   e    phi".ljust(57) + "***")
     print("*** Then press enter to solve the equation".ljust(57) + "***")
     print("*** To exit the program, simply type in 'exit'".ljust(57) + "***")
     print("*"*60)
     
     # Now actually start the input loop
     input_str = ""
+    angle_type = "radians"
+    
     # Exits only when typing in exit
     while True:
         # Cin a value
@@ -49,8 +56,25 @@ if __name__ == "__main__":
         if(input_str.lower() == "exit"):
             break
 
+        # Checks if the calculator is in radians or degrees
+        if(input_str.lower() == "degree" or input_str.lower() == "degrees"):
+            print("Switching to degrees")
+            angle_type = "degree"
+            continue
+
+        # Checks if the user input is radians
+        if(input_str.lower() == "radian" or input_str.lower() == "radians"):
+            print("Switching to radians")
+            angle_type = "radian"
+            continue
+        
         # Start the calculator
-        calculator = subprocess.Popen(["./calculator.exe"],stdin = subprocess.PIPE,stdout = subprocess.PIPE,stderr = subprocess.PIPE, bufsize = 1)
+        calculator = subprocess.Popen(
+            ["./calculator.exe",angle_type],
+            stdin = subprocess.PIPE,
+            stdout = subprocess.PIPE,
+            stderr = subprocess.PIPE,
+            bufsize = 1)
 
         # Get the input values
         cout, cerr = calculator.communicate(bytes(str(input_str + '\n'),"utf-8"))
