@@ -2,8 +2,8 @@ This is a program designed for a linux/unix command prompt
 Works well if you have Makefile activated
 
 ## Running the project
-```
-python3 main.py
+```console
+$ python3 main.py
 ```
 
 ## Created by:
@@ -12,4 +12,6 @@ python3 main.py
 | Allen Ho | [Github](https://github.com/allenh9999) |
 | Will Wang | [Github](https://github.com/willix-w) |
 
+## Issues to resolve:
+1. Time complexity is rather slow
 
